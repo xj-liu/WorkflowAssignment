@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><wps:Execute version="1.0.0" service="WPS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opengis.net/wps/1.0.0" xmlns:wfs="http://www.opengis.net/wfs" xmlns:wps="http://www.opengis.net/wps/1.0.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" xmlns:wcs="http://www.opengis.net/wcs/1.1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsAll.xsd">
+  <ows:Identifier>polygon_wps_intersection</ows:Identifier>
+  <wps:DataInputs>
+    <wps:Input>
+      <ows:Identifier>polygonx</ows:Identifier>
+      <wps:Data>
+        <wps:ComplexData mimeType="application/json">
+        <![CDATA[{
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        249017.769957305747084,
+                        479082.1534998594434
+                    ],
+                    [
+                        248366.692948201671243,
+                        465988.271427877887618
+                    ],
+                    [
+                        266126.62691876234021,
+                        465662.732923325849697
+                    ],
+                    [
+                        266018.114083911641501,
+                        478648.10216045670677
+                    ],
+                    [
+                        249017.769957305747084,
+                        479082.1534998594434
+                    ]
+                ]
+            ]
+        }]]>
+        </wps:ComplexData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>polygony</ows:Identifier>
+      <wps:Data>
+        <wps:ComplexData mimeType="application/json">
+          <![CDATA[{
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        256107.275167549931211,
+                        473638.42628485057503
+                    ],
+                    [
+                        253611.479965984384762,
+                        470744.750688832544256
+                    ],
+                    [
+                        260230.762891875609057,
+                        470997.947303484077565
+                    ],
+                    [
+                        256107.275167549931211,
+                        473638.42628485057503
+                    ]
+                ]
+            ]
+        }]]>
+        </wps:ComplexData>
+      </wps:Data>
+    </wps:Input>
+  </wps:DataInputs>
+  <wps:ResponseForm>
+    <wps:RawDataOutput mimeType="application/json">
+      <ows:Identifier>result</ows:Identifier>
+    </wps:RawDataOutput>
+  </wps:ResponseForm>
+</wps:Execute>

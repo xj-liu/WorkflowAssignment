@@ -1,0 +1,264 @@
+{
+    "workflows": [
+        {
+            "id": 1,
+            "metadata": {
+                "longname": "s6039782_assign3"
+            },
+            "operations": [
+                {
+                    "id": 0,
+                    "metadata": {
+                        "longname": "gs:Centroid",
+                        "label": "gs:Centroid",
+                        "url": "http://130.89.221.193:85/geoserver/ows?",
+                        "resource": "WPS",
+                        "description": "Computes the geometric centroids of features",
+                        "inputparametercount": 1,
+                        "outputparametercount": 1,
+                        "position": [
+                            133,
+                            12
+                        ]
+                    },
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "identifier": "features",
+                            "name": "features",
+                            "type": "geom",
+                            "description": "Input feature collection",
+                            "optional": false,
+                            "url": "",
+                            "value": "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/exercise/data/afrialiance/layers.map&version=2.0.0&service=WFS&request=GetFeature&typeName=neighbourhood&outputFormat=geojson&srsname=EPSG:3857&buname=Boddenkamp"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "identifier": "result",
+                            "name": "result",
+                            "value": "",
+                            "description": "result",
+                            "type": "geom"
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "metadata": {
+                        "longname": "gs:Buffer",
+                        "label": "gs:BufferFeatureCollection",
+                        "url": "http://130.89.221.193:85/geoserver/ows?",
+                        "resource": "WPS",
+                        "description": "Buffers features by a distance value supplied either as a parameter or by a feature attribute. Calculates buffers based on Cartesian distances.",
+                        "inputparametercount": 3,
+                        "outputparametercount": 1,
+                        "position": [
+                            402,
+                            151
+                        ]
+                    },
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "identifier": "features",
+                            "name": "features",
+                            "type": "geom",
+                            "description": "Input feature collection",
+                            "optional": false,
+                            "url": "",
+                            "value": "0_to_0"
+                        },
+                        {
+                            "id": 1,
+                            "identifier": "distance",
+                            "name": "distance",
+                            "type": "xs:double",
+                            "description": "Fixed value to use for the buffer distance",
+                            "optional": false,
+                            "url": "",
+                            "value": "1000"
+                        },
+                        {
+                            "id": 2,
+                            "identifier": "attributeName",
+                            "name": "attributeName",
+                            "type": "text",
+                            "description": "Attribute containing the buffer distance value",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "identifier": "result",
+                            "name": "result",
+                            "value": "",
+                            "description": "result",
+                            "type": "geom"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "metadata": {
+                        "longname": "gs:Intersection of Feature Collections",
+                        "label": "gs:IntersectionFeatureCollection",
+                        "url": "http://130.89.221.193:85/geoserver/ows?",
+                        "resource": "WPS",
+                        "description": "Spatial intersection of two feature collections, incuding combining attributes from both.",
+                        "inputparametercount": 7,
+                        "outputparametercount": 1,
+                        "position": [
+                            128,
+                            319
+                        ]
+                    },
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "identifier": "first feature collection",
+                            "name": "first feature collection",
+                            "type": "geom",
+                            "description": "First feature collection",
+                            "optional": false,
+                            "url": "",
+                            "value": "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/exercise/data/afrialiance/layers.map&version=2.0.0&service=WFS&request=GetFeature&typeName=streets&outputFormat=geojson&srsname=EPSG:3857"
+                        },
+                        {
+                            "id": 1,
+                            "identifier": "second feature collection",
+                            "name": "second feature collection",
+                            "type": "geom",
+                            "description": "Second feature collection",
+                            "optional": false,
+                            "url": "",
+                            "value": "1_to_1"
+                        },
+                        {
+                            "id": 2,
+                            "identifier": "first attributes to retain",
+                            "name": "first attributes to retain",
+                            "type": "text",
+                            "description": "First feature collection attribute to include",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        },
+                        {
+                            "id": 3,
+                            "identifier": "second attributes to retain",
+                            "name": "second attributes to retain",
+                            "type": "text",
+                            "description": "Second feature collection attribute to include",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        },
+                        {
+                            "id": 4,
+                            "identifier": "intersectionMode",
+                            "name": "intersectionMode",
+                            "type": "INTERSECTION|FIRST|SECOND",
+                            "description": "Specifies geometry computed for intersecting features.  INTERSECTION (default) computes the spatial intersection of the inputs. FIRST copies geometry A.  SECOND copies geometry B.",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        },
+                        {
+                            "id": 5,
+                            "identifier": "percentagesEnabled",
+                            "name": "percentagesEnabled",
+                            "type": "xs:boolean",
+                            "description": "Indicates whether to output feature area percentages (attributes percentageA and percentageB)",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        },
+                        {
+                            "id": 6,
+                            "identifier": "areasEnabled",
+                            "name": "areasEnabled",
+                            "type": "xs:boolean",
+                            "description": "Indicates whether to output feature areas (attributes areaA and areaB)",
+                            "optional": true,
+                            "url": "",
+                            "value": ""
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "identifier": "result",
+                            "name": "result",
+                            "value": "",
+                            "description": "result",
+                            "type": "geom"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "metadata": {
+                        "longname": "gs:Length",
+                        "label": "gs:Length",
+                        "url": "http://130.89.221.193:85/geoserver/ows?",
+                        "resource": "WPS",
+                        "description": "Returns the total length of all line segments in a geometry. Measurement is given in the source units, so geographic coordinates are not recommended....Robert Ouko",
+                        "inputparametercount": 1,
+                        "outputparametercount": 1,
+                        "position": [
+                            408,
+                            550
+                        ]
+                    },
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "identifier": "feature",
+                            "name": "feature",
+                            "type": "geom",
+                            "description": "Line feature",
+                            "optional": false,
+                            "url": "",
+                            "value": "2_to_0"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "identifier": "result",
+                            "name": "result",
+                            "value": "",
+                            "description": "result",
+                            "type": "double"
+                        }
+                    ]
+                }
+            ],
+            "connections": [
+                {
+                    "fromOperationID": 0,
+                    "toOperationID": 1,
+                    "fromParameterID": 0,
+                    "toParameterID": 0
+                },
+                {
+                    "fromOperationID": 1,
+                    "toOperationID": 2,
+                    "fromParameterID": 0,
+                    "toParameterID": 1
+                },
+                {
+                    "fromOperationID": 2,
+                    "toOperationID": 3,
+                    "fromParameterID": 0,
+                    "toParameterID": 0
+                }
+            ]
+        }
+    ]
+}
