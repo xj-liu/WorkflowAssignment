@@ -8,7 +8,7 @@ buur_params = {
     'outputFormat':'geojson',
     'srsname':'EPSG:3857'    
 }
-# Get all neighbourhoods (FeatureCollection)
+# Get all neighbourhoods(FeatureCollection)
 buur = requests.get("https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/exercise/data/afrialiance/layers.map&", 
                     params=buur_params).json()
 buur_feas = buur["features"]
